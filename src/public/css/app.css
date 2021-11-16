@@ -414,7 +414,8 @@ html {
 
 .auth-form {
   width: 500px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  z-index: 1; }
 
 .auth-form-login {
   display: none; }
@@ -492,7 +493,8 @@ html {
   padding: 16px 36px;
   display: flex;
   justify-content: space-between;
-  margin-top: 24px; }
+  margin-top: 24px;
+  z-index: 100; }
 
 .auth-form__social-icon {
   font-size: 1.8rem; }

@@ -506,6 +506,7 @@ html {
 .auth-form {
     width: 500px;
     border-radius: 5px;   
+    z-index: 1;
 }
 
 .auth-form-login {
@@ -602,6 +603,7 @@ html {
     display: flex;
     justify-content: space-between;
     margin-top: 24px;
+    z-index: 100;
 }
 
 .auth-form__social-icon {
