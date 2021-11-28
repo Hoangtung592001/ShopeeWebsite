@@ -49,7 +49,6 @@
         {{/each}}
     </div>
 </div>
-
 <script src="/socket.io/socket.io.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -63,7 +62,7 @@
         const commentBox = document.querySelector('.comment-box');
         const deleteProductForm_ByAdmin = document.querySelector('.deleteProductForm-ByAdmin');
         const socket = io();
-        console.log(formComment);  
+        console.log(window.location.href);  
         const deleteForm = document.querySelector('.deleteProductForm');
         console.log(deleteForm);
         fetch('http://localhost:3000/isAdmin')

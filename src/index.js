@@ -8,9 +8,9 @@ const morgan = require('morgan');
 const handlebars = require('express-handlebars');
 const route = require('./routes');
 const methodOverride = require('method-override');
+const cookieParser = require('cookie-parser');
 const socketio = require('socket.io');
 const app = express();
-const cookieParser = require('cookie-parser');
 const server = http.createServer(app);
 const io = socketio(server);
 const comment = require('./socket/comments');
@@ -97,7 +97,6 @@ io.on('connection', socket => {
     socket.on('message', ({ msg, userInfo }) => {
         io.to(userInfo.productCode).emit('chatMessage', { msg: msg, userInfo });
     });
-
 })
     
 // Dat cai ung dung su dung view engine la handlebars

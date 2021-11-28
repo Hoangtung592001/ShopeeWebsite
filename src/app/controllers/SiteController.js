@@ -63,14 +63,13 @@ class SiteController {
                     // res.send(req.cookies.myOrders);
                     // res.json({ reqq: res.locals });
                     const data = req.body;
-                    var myOrder;
                     data.name = user.name;
                     data.role = user.role;
                     data.userId = user.userId;
                     const accessToken = jwt.sign(data, "ANHYEUEM");
                     res.cookie('token', accessToken);
-                    res.redirect('/');
                     isLoggedIn = true;
+                    res.redirect('/');
                 }
             })
         });
@@ -103,6 +102,7 @@ class SiteController {
     }
 
     getUser(req, res, next) {
+        // res.json({ req: req.user });
         res.json({ user: req.user });
     }
 
