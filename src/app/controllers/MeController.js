@@ -12,8 +12,21 @@ class MeController {
         const sql = `SELECT * FROM users WHERE users.userId = ${req.user.userId}`;
         db.query(sql, (err, user) => {
             user = Array.from(user)[0];
+            // return res.json(user);
             res.render('me/info', { user: user });  
         })
+    }
+
+    changeInfo(req, res, next) {
+        const queryGetUser = `SELECT * FROM users WHERE users.userId = ${req.user.userId}`;
+        db.query(queryGetUser, async (err, user) => {
+            user = Array.from(user)[0];
+            const updateQuery = `UPDATE users` +
+            ` SET name = "${req.body.name}"` +
+            ` WHERE userId = ${req.user.userId}`;
+            await db.query(updateQuery);
+            res.redirect('/me/logout');
+        });
     }
 
     // [GET] /me/order
@@ -123,13 +136,12 @@ class MeController {
                         `WHERE productCode = "${confirmedProduct}"`;
                         db.query(updateProductSQL);
                     })
-                    
                     db.query(addOrderdetailsSQL);
                     db.query(deleteOrderCart);
                 })
             })
         })
-        res.redirect('back');
+        res.redirect('/');
         // const sql = `SELECT * FROM ordercart WHERE customerId = ${req.user.userId} AND productCode = "${}"`
     };
 

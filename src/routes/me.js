@@ -15,6 +15,8 @@ router.patch('/edit/:productCode', isLoggedIn, meController.editProducts);
 
 router.patch('/change_password/:password', isLoggedIn, meController.change_password);
 
+router.patch('/change_info', isLoggedIn, meController.changeInfo);
+
 router.get('/order', isLoggedIn, meController.order);
 
 router.get('/myInfo', isLoggedIn, meController.myInfo);

@@ -198,7 +198,7 @@
             headerCartQuantity.innerText = `${products.length}`;
             const htmlProduct = products.map((product) => {
                 const formatter = new Intl.NumberFormat();
-                product.priceEach = formatter.format(product.priceEach * product.discount / 100);
+                product.priceEach = formatter.format(product.priceEach * (100 - product.discount) / 100);
                 return `
                     <li class="header__cart-item">
                         <img src="${product.image}" alt="" class="header__cart-img">

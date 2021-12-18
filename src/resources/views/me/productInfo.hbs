@@ -37,7 +37,8 @@
                     <label class="col-sm-2 myInfo__change-info-label">Chọn dòng sản phẩm</label>
                     <div class="col-sm-10">
                         <select class="post-product-productline" name="productline" required>
-                            <option selected value="Áo">Áo</option>
+                            <option value={{productline}} selected disabled hidden>{{productline}}</option>
+                            <option value="Áo">Áo</option>
                             <option value="Điện Thoại">Điện thoại</option>
                             <option value="Đồng Hồ">Đồng hồ</option>
                             <option value="Giầy, dép">Giầy, dép</option>

@@ -1,12 +1,13 @@
 <div class="grid">
     <div class="grid__row app__content">
+        {{#with user}}
         <div class="grid__column-2 myInfo-nav-info">
-            <h3>olegion2001</h3>
+            <h3>{{username}}</h3>
             <div>
                 <a href=>Sửa hồ sơ</a>
             </div>
             <div>
-                <a href="">Tài khoản của tôi</a>   
+                <a href="">Tài khoản của tôi</a>
             </div>
             <div>
                 <a href="/me/change_password_site">Đổi mật khẩu</a>   
@@ -19,8 +20,8 @@
         <div class="grid__column-10 myInfo-info">
             <h3>HỒ SƠ CỦA TÔI</h3>
             <h5>Quản lý thông tin hồ sơ để bảo mật tài khoản</h5>
-            <form>
-            {{#with user}}
+            <form action='/me/change_info?_method=PATCH' method='POST'>
+            
             <div class="myInfo-change-box">
                 <div class="form-group row myInfo__change-info">
                     <label for="staticEmail" class="col-sm-2 myInfo__change-info-label">Tên Đăng Nhập</label>
@@ -32,14 +33,14 @@
                 <div class="form-group row myInfo__change-info">
                     <label for="inputPassword" class="col-sm-2 myInfo__change-info-label">Tên</label>
                     <div class="col-sm-10">
-                        <input type="text" class="myInfo__change-info-input" value={{name}}>
+                        <input type="text" name="name" class="myInfo__change-info-input" value='{{name}}'>
                     </div>
                 </div>
                 
                 <div class="form-group row myInfo__change-info">
                     <label for="staticEmail" class="col-sm-2 myInfo__change-info-label">Tên Shop</label>
                     <div class="col-sm-10">
-                        <input type="text" class="myInfo__change-info-input" value={{username}}>
+                        <input type="text" class="myInfo__change-info-input" value={{username}} disabled>
                     </div>
                 </div>
 
@@ -54,7 +55,6 @@
                 </button>
             </div>
            {{/with}}
-
             </form>
         </div>
     </div>
